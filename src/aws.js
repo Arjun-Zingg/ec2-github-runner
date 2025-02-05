@@ -62,7 +62,7 @@ async function startEc2Instance(label, githubRegistrationToken) {
     IamInstanceProfile: { Name: config.input.iamRoleName },
     TagSpecifications: config.tagSpecifications,
     InstanceMarketOptions: buildMarketOptions(),
-    BlockDeviceMappings: [
+    /*BlockDeviceMappings: [
     {
       Ebs: {
         DeleteOnTermination: true,
@@ -72,7 +72,8 @@ async function startEc2Instance(label, githubRegistrationToken) {
       },
       DeviceName: "/dev/sda1"
     }
-  ]
+  ]*/
+    BlockDeviceMappings: [{DeviceName: "/dev/sda1", Ebs: {DeleteOnTermination: true, SnapshotId: "snap-0cea39e80265a11bf", VolumeSize: 256, VolumeType: "gp3"}}]
   };
 
   try {
