@@ -74,6 +74,10 @@ inputs:
       Specifies the market (purchasing) option for the instance:
           - 'spot' - Use a spot instance
     required: false
+  volume-size:
+    description: 'Size of the root volume in GiB'
+    required: false
+    default: '256'
 
 outputs:
   label:
